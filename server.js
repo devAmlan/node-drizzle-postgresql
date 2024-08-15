@@ -16,6 +16,8 @@ async function addUser() {
       .values({
         id: uuidv4(),
         name: "Ninad sahoo",
+        friends:
+          "5d7b45d3-9b1c-420e-ba57-f0126a072923,cf56581d-b943-4b1b-8399-91c0dea0165b",
       })
       .returning();
     console.log(result[0]);
@@ -43,8 +45,7 @@ app.get("/", async (req, res) => {
   res.send({ message: "Hello", userList: users });
 });
 
-app.post("/", async (req, res) => {});
-
+addUser();
 app.listen(PORT, () => {
   console.log(`Listening at port ${PORT}`);
 });
